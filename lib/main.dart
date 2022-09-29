@@ -31,6 +31,7 @@ class HomePage extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      backgroundColor: const Color.fromARGB(95, 202, 202, 202),
       appBar: AppBar(
         title: Text(title),
       ),
