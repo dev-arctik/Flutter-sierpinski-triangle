@@ -27,11 +27,23 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
       ),
-      body: const Center(child: DrawingCanvas()),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: SizedBox(
+            width: height > width ? width : height,
+            height: height > width ? width : height,
+            child: const DrawingCanvas(),
+          ),
+        ),
+      ),
 
       //button to reset the animation and empty the canvas
       floatingActionButton: FloatingActionButton(
