@@ -27,21 +27,18 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
-
     return Scaffold(
       backgroundColor: const Color.fromARGB(95, 202, 202, 202),
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Center(
+      body: const Center(
         child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: SizedBox(
-            width: height > width ? width : height,
-            height: height > width ? width : height,
-            child: const DrawingCanvas(),
+          padding: EdgeInsets.all(20),
+          child: AspectRatio(
+            //it is to create a square box
+            aspectRatio: 1,
+            child: DrawingCanvas(),
           ),
         ),
       ),
