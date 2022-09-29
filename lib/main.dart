@@ -45,11 +45,12 @@ class HomePage extends StatelessWidget {
         ),
       ),
 
-      //button to reset the animation and empty the canvas
+      //*button to reset the animation and empty the canvas
+      //!Doesn't work
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {}, //TODO: look for a funtion to empty the canvas
         tooltip: 'Reset',
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.restart_alt),
       ),
     );
   }

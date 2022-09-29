@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
@@ -17,15 +18,15 @@ class DrawingCanvas extends StatelessWidget {
 }
 
 class MyPainter extends CustomPainter {
-  //here you add code to draw
+  //*here you add code to draw
   @override
   void paint(Canvas canvas, Size size) {
     final dotPainter = Paint() //dotPainter is our Pen to draw
       ..color = Colors.black //..color is equivalent to dotPainter.color
-      ..strokeWidth = 4
+      ..strokeWidth = 2
       ..strokeCap = StrokeCap.round;
 
-    //drawing the vertices of triangle
+    //*drawing the vertices of triangle
     const triangleVertices = PointMode.points;
     double verticePadding =
         size.width * 0.1; //to give some space from egde of canvas
@@ -44,8 +45,34 @@ class MyPainter extends CustomPainter {
     ];
     canvas.drawPoints(
         triangleVertices, drawVerticeCoordinates, dotPainter); //plot vertices
+
+    //*plotting the sierpinski's triangle
+    Random random = Random();
+    double initialX = random
+        .nextInt(size.width.round())
+        .toDouble(); //initial random point inside canvas x coordinate
+    double initialY = random
+        .nextInt(size.height.round())
+        .toDouble(); //initial random point inside canvas y coordinate
+    const randomPoints = PointMode.points;
+    final randomPointsCoordinates = [
+      Offset(initialX, initialY),
+    ]; //list of all random points
+    for (var i = 0; i <= 100000; i++) {
+      var chooseRandomVertice = (verticeCoordinates.toList()..shuffle())
+          .first; //to select a random vertex
+      double newX = (chooseRandomVertice[0] + initialX) / 2;
+      double newY = (chooseRandomVertice[1] + initialY) / 2;
+      randomPointsCoordinates.add(Offset(newX, newY));
+      initialX = newX;
+      initialY = newY;
+    }
+    canvas.drawPoints(
+        randomPoints, randomPointsCoordinates, dotPainter); //plot random points
   }
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
+
+//TODO: Find a way to animate the plotting of dots one after another
