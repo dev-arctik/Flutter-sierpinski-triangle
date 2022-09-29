@@ -7,4 +7,5 @@ The image below showcase what a Sierpinski's Triangle looks like.
 ![Sierpinski's Triangle](https://github.com/dev-arctik/Flutter-sierpinski-triangle/blob/master/For%20Readme/Sierpinski_triangle.png)
 
 Following is the screenshot of the triangle plotted on the canvas.
-![Sierpinski's Triangle](https://github.com/dev-arctik/Flutter-sierpinski-triangle/blob/master/For%20Readme/screenshot.png)
+![Sierpinski's Triangle](https://github.com/dev-arctik/Flutter-sierpinski-triangle/blob/master/For%20Readme/App potrait.png)
+![Sierpinski's Triangle](https://github.com/dev-arctik/Flutter-sierpinski-triangle/blob/master/For%20Readme/App landscape.png)
